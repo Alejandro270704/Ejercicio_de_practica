@@ -5,13 +5,14 @@
 package pacientes;
 
 public class persona {
+
     String nombre_completo;
     String numero_documento;
     int edad;
     String motivo_de_consulta;
     String telefonos;
     String tipo_paciente;
-    String estado="Registrado";
+    String estado = "Registrado";
 
     public persona(String nombre_completo, String numero_documento, int edad, String motivo_de_consulta, String telefonos) {
         this.nombre_completo = nombre_completo;
@@ -19,7 +20,7 @@ public class persona {
         this.edad = edad;
         this.motivo_de_consulta = motivo_de_consulta;
         this.telefonos = telefonos;
-        this.tipo_paciente= calcular_paciente();
+        this.tipo_paciente = calcular_paciente();
         this.estado = estado;
     }
 
@@ -78,13 +79,26 @@ public class persona {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-    public String calcular_paciente(){
-         String vtipo_paciente= edad>= 18? "Mayordeedad" : "Menor de edad";
-         return vtipo_paciente;
+
+    public String calcular_paciente() {
+        String vtipo_paciente = edad >= 18 ? "Mayor de edad" : "Menor de edad";
+        return vtipo_paciente;
+    }
+
+    public String mostrarTelefono() {
+        String tel = ".";
+        if (telefonos.split(",").length == 1) {
+            tel += telefonos;
+        } else {
+            for (int i = 0; i < telefonos.split(",").length; i++) {
+                tel+=telefonos.split(",").length +"\n";
+            }
+        }
+        return tel.substring(1);
     }
 
     public String mostrar_paciente() {
-        return "nombre_completo=" + nombre_completo + ", numero_documento=" + numero_documento + ", edad=" + edad + ", motivo_de_consulta=" + motivo_de_consulta + ", telefonos=" + telefonos + ", tipo_paciente=" + tipo_paciente + ", estado=" + estado + '}';
+        return"nombre completo:" + nombre_completo + "\n numero documento:" + numero_documento + "\n edad:" + edad + "\n motivo de consulta:" + motivo_de_consulta + "\n telefonos:" + mostrarTelefono() + "\n tipo paciente:" + tipo_paciente + "\n estado:" + estado + "\n";
     }
-    
+
 }
