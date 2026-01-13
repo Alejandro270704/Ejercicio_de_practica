@@ -2,17 +2,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package pacientes;
+package MODELO;
 
 public class persona {
 
-    String nombre_completo;
-    String numero_documento;
-    int edad;
-    String motivo_de_consulta;
-    String telefonos;
-    String tipo_paciente;
-    String estado = "Registrado";
+    private String nombre_completo;
+    private String numero_documento;
+    private int edad;
+    private String motivo_de_consulta;
+    private String telefonos;
+    private String tipo_paciente;
+    private String estado;
 
     public persona(String nombre_completo, String numero_documento, int edad, String motivo_de_consulta, String telefonos) {
         this.nombre_completo = nombre_completo;
@@ -21,7 +21,7 @@ public class persona {
         this.motivo_de_consulta = motivo_de_consulta;
         this.telefonos = telefonos;
         this.tipo_paciente = calcular_paciente();
-        this.estado = estado;
+        this.estado ="Registrado";
     }
 
     public String getNombre_completo() {
